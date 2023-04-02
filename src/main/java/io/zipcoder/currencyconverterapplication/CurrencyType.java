@@ -1,6 +1,6 @@
 package io.zipcoder.currencyconverterapplication;
 
-import io.zipcoder.currencyconverterapplication.currencies.AustralianDollar;
+import io.zipcoder.currencyconverterapplication.currencies.*;
 
 public enum CurrencyType {
     AUSTRALIAN_DOLLAR(2.70),
@@ -27,12 +27,37 @@ public enum CurrencyType {
     }
 
     public static CurrencyType getTypeOfCurrency(ConvertableCurrency currency) {
-        for (CurrencyType ans : CurrencyType.values()) {
-        if (currency.getCurrencyType() == ans) {
-            return ans;
+        if (currency instanceof AustralianDollar) {
+            return CurrencyType.AUSTRALIAN_DOLLAR;
+        } else if (currency instanceof CanadianDollar) {
+            return CurrencyType.CANADIAN_DOLLAR;
+        } else if (currency instanceof ChineseYR) {
+            return CurrencyType.CHINESE_YR;
+        } else if (currency instanceof Euro) {
+            return CurrencyType.EURO;
+        } else if (currency instanceof Franc) {
+            return CurrencyType.FRANC;
+        } else if (currency instanceof Pound) {
+            return CurrencyType.POUND;
+        } else if (currency instanceof Ringgit) {
+            return CurrencyType.RINGGIT;
+        } else if (currency instanceof Rupee) {
+            return CurrencyType.RUPEE;
+        } else if (currency instanceof SingaporeDollar) {
+            return CurrencyType.SINGAPORE_DOLLAR;
+        } else if (currency instanceof USDollar) {
+            return CurrencyType.US_DOLLAR;
+        } else if (currency instanceof Yen) {
+            return CurrencyType.YEN;
+        } else {
+            return CurrencyType.UNIVERSAL_CURRENCY;
         }
+//        for (CurrencyType ans : CurrencyType.values()) {
+//        if (currency.getCurrencyType() == ans) {
+//            return ans;
+//        }
 
-        return null;
+
 //        switch (currency) {
 //            case AUSTRALIAN_DOLLAR:
 //                return AUSTRALIAN_DOLLAR;
